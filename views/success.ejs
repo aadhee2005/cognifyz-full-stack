@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Registration Successful</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+
+            background: linear-gradient(
+                135deg,
+                #667eea,
+                #764ba2,
+                #f093fb
+            );
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+        }
+
+        .success-card {
+            width: 100%;
+            max-width: 500px;
+            background: white;
+
+            padding: 45px;
+            border-radius: 20px;
+
+            text-align: center;
+
+            box-shadow:
+                0 15px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        .check {
+            width: 80px;
+            height: 80px;
+
+            margin: 0 auto 20px;
+
+            border-radius: 50%;
+
+            background: #667eea;
+
+            color: white;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 45px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .message {
+            color: #777;
+            margin-bottom: 30px;
+        }
+
+        .details {
+            background: #f5f3ff;
+
+            padding: 20px;
+
+            border-radius: 12px;
+
+            text-align: left;
+
+            margin-bottom: 25px;
+        }
+
+        .details p {
+            margin: 12px 0;
+            color: #444;
+        }
+
+        .details strong {
+            color: #667eea;
+        }
+
+        .back-button {
+            display: inline-block;
+
+            width: 100%;
+
+            padding: 14px;
+
+            background: linear-gradient(
+                135deg,
+                #667eea,
+                #764ba2
+            );
+
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 10px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 8px 20px rgba(118, 75, 162, 0.4);
+        }
+
+        .footer {
+            margin-top: 25px;
+
+            font-size: 13px;
+
+            color: #999;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="success-card">
+
+        <div class="check">
+            ✓
+        </div>
+
+        <h1>Registration Successful!</h1>
+
+        <p class="message">
+            Your information has been submitted successfully.
+        </p>
+
+        <div class="details">
+
+            <p>
+                <strong>Name:</strong>
+                <%= name %>
+            </p>
+
+            <p>
+                <strong>Email:</strong>
+                <%= email %>
+            </p>
+
+            <p>
+                <strong>Age:</strong>
+                <%= age %>
+            </p>
+
+        </div>
+
+        <a href="/" class="back-button">
+            Go Back to Registration
+        </a>
+
+        <div class="footer">
+            Cognifyz Technologies | Full Stack Development
+        </div>
+
+    </div>
+
+</body>
+
+</html>
