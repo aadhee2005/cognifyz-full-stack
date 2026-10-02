@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cognifyz | Task 5 - Product Manager</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <h1>🚀 Product Manager</h1>
+        <p>REST API CRUD Application</p>
+    </header>
+
+    <main class="container">
+
+        <!-- Add Product -->
+        <section class="card">
+
+            <h2>➕ Add Product</h2>
+
+            <form id="productForm">
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Product name"
+                    required
+                >
+
+                <input
+                    type="number"
+                    id="price"
+                    placeholder="Price"
+                    min="0"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="category"
+                    placeholder="Category"
+                    required
+                >
+
+                <button type="submit">
+                    Add Product
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- Product List -->
+        <section class="card">
+
+            <div class="section-header">
+
+                <h2>📦 Products</h2>
+
+                <button id="refreshButton">
+                    🔄 Refresh
+                </button>
+
+            </div>
+
+            <div id="productList">
+                <p class="loading">Loading products...</p>
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
