@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cognifyz - Task 2</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+
+            background: linear-gradient(
+                135deg,
+                #667eea,
+                #764ba2,
+                #f093fb
+            );
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 30px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+
+            background: white;
+
+            padding: 40px;
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 15px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            color: #764ba2;
+            font-size: 18px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #777;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+
+            font-weight: bold;
+            color: #444;
+        }
+
+        input,
+        select {
+            width: 100%;
+
+            padding: 13px;
+
+            border: 2px solid #ddd;
+            border-radius: 10px;
+
+            font-size: 15px;
+
+            outline: none;
+
+            transition: 0.3s;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: #667eea;
+
+            box-shadow:
+                0 0 8px rgba(102, 126, 234, 0.3);
+        }
+
+        .gender-container {
+            display: flex;
+            gap: 20px;
+        }
+
+        .gender-option {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .gender-option input {
+            width: auto;
+        }
+
+        .skills {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .skill {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .skill input {
+            width: auto;
+        }
+
+        .error {
+            color: #e74c3c;
+            font-size: 13px;
+            margin-top: 5px;
+            display: block;
+        }
+
+        button {
+            width: 100%;
+
+            padding: 14px;
+
+            border: none;
+            border-radius: 10px;
+
+            background: linear-gradient(
+                135deg,
+                #667eea,
+                #764ba2
+            );
+
+            color: white;
+
+            font-size: 17px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 8px 20px rgba(118, 75, 162, 0.4);
+        }
+
+        .footer {
+            text-align: center;
+
+            margin-top: 25px;
+
+            color: #999;
+
+            font-size: 13px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 25px;
+            }
+
+            .skills {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="header">
+
+            <div class="logo">
+                COGNIFYZ TECHNOLOGIES
+            </div>
+
+            <h1>User Registration</h1>
+
+            <p class="subtitle">
+                Full Stack Development - Task 2
+            </p>
+
+        </div>
+
+        <form
+            id="registrationForm"
+            action="/submit"
+            method="POST"
+        >
+
+            <!-- Name -->
+            <div class="form-group">
+
+                <label for="name">
+                    Full Name
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Enter your full name"
+                >
+
+                <span
+                    id="nameError"
+                    class="error"
+                ></span>
+
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+
+                <label for="email">
+                    Email Address
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Enter your email"
+                >
+
+                <span
+                    id="emailError"
+                    class="error"
+                ></span>
+
+            </div>
+
+            <!-- Password -->
+            <div class="form-group">
+
+                <label for="password">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Create a password"
+                >
+
+                <span
+                    id="passwordError"
+                    class="error"
+                ></span>
+
+            </div>
+
+            <!-- Age -->
+            <div class="form-group">
+
+                <label for="age">
+                    Age
+                </label>
+
+                <input
+                    type="number"
+                    id="age"
+                    name="age"
+                    placeholder="Enter your age"
+                >
+
+                <span
+                    id="ageError"
+                    class="error"
+                ></span>
+
+            </div>
+
+            <!-- Phone -->
+            <div class="form-group">
+
+                <label for="phone">
+                    Phone Number
+                </label>
+
+                <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    placeholder="Enter your phone number"
+                >
+
+                <span
+                    id="phoneError"
+                    class="error"
+                ></span>
+
+            </div>
+
+            <!-- Gender -->
+            <div class="form-group">
+
+                <label>
+                    Gender
+                </label>
+
+                <div class="gender-container">
+
+                    <div class="gender-option">
+                        <input
+                            type="radio"
+                            name="gender"
+                            value="Male"
+                        >
+                        <span>Male</span>
+                    </div>
+
+                    <div class="gender-option">
+                        <input
+                            type="radio"
+                            name="gender"
+                            value="Female"
+                        >
+                        <span>Female</span>
+                    </div>
+
+                    <div class="gender-option">
+                        <input
+                            type="radio"
+                            name="gender"
+                            value="Other"
+                        >
+                        <span>Other</span>
+                    </div>
+
+                </div>
+
+                <span
+                    id="genderError"
+                    class="error"
+                ></span>
+
+            </div>
+
+            <!-- Skills -->
+            <div class="form-group">
+
+                <label>
+                    Skills / Interests
+                </label>
+
+                <div class="skills">
+
+                    <div class="skill">
+                        <input
+                            type="checkbox"
+                            name="skills"
+                            value="HTML"
+                        >
+                        <span>HTML</span>
+                    </div>
+
+                    <div class="skill">
+                        <input
+                            type="checkbox"
+                            name="skills"
+                            value="CSS"
+                        >
+                        <span>CSS</span>
+                    </div>
+
+                    <div class="skill">
+                        <input
+                            type="checkbox"
+                            name="skills"
+                            value="JavaScript"
+                        >
+                        <span>JavaScript</span>
+                    </div>
+
+                    <div class="skill">
+                        <input
+                            type="checkbox"
+                            name="skills"
+                            value="Node.js"
+                        >
+                        <span>Node.js</span>
+                    </div>
+
+                </div>
+
+                <span
+                    id="skillsError"
+                    class="error"
+                ></span>
+
+            </div>
+
+            <button type="submit">
+                Register Now
+            </button>
+
+        </form>
+
+        <div class="footer">
+            Cognifyz Technologies | Full Stack Development
+        </div>
+
+    </div>
+<script>
+    const form = document.getElementById("registrationForm");
+
+    form.addEventListener("submit", function(event) {
+
+        // Prevent form submission temporarily
+        event.preventDefault();
+
+        // Get values
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value;
+        const age = document.getElementById("age").value;
+        const phone = document.getElementById("phone").value.trim();
+
+        const gender = document.querySelector(
+            'input[name="gender"]:checked'
+        );
+
+        const skills = document.querySelectorAll(
+            'input[name="skills"]:checked'
+        );
+
+        // Error elements
+        const nameError = document.getElementById("nameError");
+        const emailError = document.getElementById("emailError");
+        const passwordError = document.getElementById("passwordError");
+        const ageError = document.getElementById("ageError");
+        const phoneError = document.getElementById("phoneError");
+        const genderError = document.getElementById("genderError");
+        const skillsError = document.getElementById("skillsError");
+
+        // Clear previous errors
+        nameError.textContent = "";
+        emailError.textContent = "";
+        passwordError.textContent = "";
+        ageError.textContent = "";
+        phoneError.textContent = "";
+        genderError.textContent = "";
+        skillsError.textContent = "";
+
+        let isValid = true;
+
+        // Name validation
+        if (name === "") {
+            nameError.textContent = "Please enter your name.";
+            isValid = false;
+        } else if (name.length < 3) {
+            nameError.textContent =
+                "Name must contain at least 3 characters.";
+            isValid = false;
+        }
+
+        // Email validation
+        const emailPattern =
+            /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (email === "") {
+            emailError.textContent =
+                "Please enter your email.";
+            isValid = false;
+        } else if (!emailPattern.test(email)) {
+            emailError.textContent =
+                "Please enter a valid email address.";
+            isValid = false;
+        }
+
+        // Password validation
+        if (password === "") {
+            passwordError.textContent =
+                "Please enter a password.";
+            isValid = false;
+        } else if (password.length < 8) {
+            passwordError.textContent =
+                "Password must contain at least 8 characters.";
+            isValid = false;
+        }
+
+        // Age validation
+        const ageNumber = Number(age);
+
+        if (age === "") {
+            ageError.textContent =
+                "Please enter your age.";
+            isValid = false;
+        } else if (ageNumber < 18 || ageNumber > 100) {
+            ageError.textContent =
+                "Age must be between 18 and 100.";
+            isValid = false;
+        }
+
+        // Phone validation
+        const phonePattern = /^[0-9]{10}$/;
+
+        if (phone === "") {
+            phoneError.textContent =
+                "Please enter your phone number.";
+            isValid = false;
+        } else if (!phonePattern.test(phone)) {
+            phoneError.textContent =
+                "Phone number must contain exactly 10 digits.";
+            isValid = false;
+        }
+
+        // Gender validation
+        if (!gender) {
+            genderError.textContent =
+                "Please select your gender.";
+            isValid = false;
+        }
+
+        // Skills validation
+        if (skills.length === 0) {
+            skillsError.textContent =
+                "Please select at least one skill.";
+            isValid = false;
+        }
+
+        // Submit if everything is valid
+        if (isValid) {
+
+            alert("Client-side validation successful!");
+
+            // Now allow the form to be submitted
+            form.submit();
+        }
+    });
+</script>
+</body>
+</html>
